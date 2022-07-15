@@ -1,9 +1,37 @@
 require('dotenv').config();
 const express = require("express");
 const multer = require('multer');
+const session = require('express-session');
 const upload = require(__dirname + '/modules/upload-images');
-
+const db = require(__dirname + '/modules/mysql-connect');
+const MysqlStore = require('express-mysql-session')(session);
+const sessionStore = new MysqlStore({}, db);
 const app = express();
+
+
+app.use('/coffee', require(__dirname + '/routes/coffee'));
+
+
+app.use(session({
+    saveUninitialized: false,
+    resave: false,
+    secret: 'daf121f2df31dg1g123sg132s1fdsfg3213sg1',
+    store: sessionStore,
+    cookie: {
+        maxAge: 1800000, // 30min
+    }
+}));
+
+
+
+app.get('/try-session', (req, res) => {
+    req.session.my_var = req.session.my_var || 0;
+    req.session.my_var++;
+    res.json({
+        my_var: req.session.my_var,
+        session: req.session,
+    });
+});
 
 
 // 測試用
