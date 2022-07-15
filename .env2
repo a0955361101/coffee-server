@@ -1,0 +1,7 @@
+PORT=3600
+
+DB_HOST=192.168.24.24
+DB_PORT=3306
+DB_USER=coffee
+DB_PASS=coffee
+DB_NAME=coffee
