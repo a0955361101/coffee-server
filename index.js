@@ -7,6 +7,8 @@ const db = require(__dirname + '/modules/mysql-connect');
 const MysqlStore = require('express-mysql-session')(session);
 const sessionStore = new MysqlStore({}, db);
 const app = express();
+const cors = require('cors');
+app.use(cors());
 
 
 app.use('/coffee', require(__dirname + '/routes/coffee'));
