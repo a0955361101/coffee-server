@@ -11,7 +11,7 @@ const cors = require('cors');
 app.use(cors());
 
 
-app.use('/coffee', require(__dirname + '/routes/coffee'));
+app.use('/coffee-course-get', require(__dirname + '/routes/coffee'));
 
 
 app.use(session({
