@@ -12,6 +12,7 @@ app.use(cors());
 
 
 app.use('/coffee-course-get', require(__dirname + '/routes/coffee'));
+app.use('/coffee-food-get', require(__dirname + '/routes/coffee'));
 app.use('/coffee-courseFK-get', require(__dirname + '/routes/courseFK'));
 
 
