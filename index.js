@@ -10,9 +10,12 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
-
+//把照片引入前端
+const path = require('path');
+const dir = path.join(__dirname, 'public');
+app.use(express.static(dir));
 app.use('/coffee-course-get', require(__dirname + '/routes/coffee'));
-app.use('/coffee-food-get', require(__dirname + '/routes/coffee'));
+app.use('/coffee-food-get', require(__dirname + '/routes/coffee-food'));
 app.use('/coffee-courseFK-get', require(__dirname + '/routes/courseFK'));
 
 
