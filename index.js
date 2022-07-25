@@ -103,7 +103,6 @@ app.get('/linePay/comfirm', async (req, res) => {
         const headers = createSignature(uri, linePayBody);
         const url = `${LINEPAY_SITE}/${LINEPAY_VERSION}${uri}`;
         const linePayRes = await axios.post(url, linePayBody, { headers });
-
         res.send(console.log(linePayRes));
     } catch (error) {
         res.end();
